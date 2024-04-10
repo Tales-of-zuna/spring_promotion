@@ -1,0 +1,8 @@
+:root {
+  --mazeScreenHeight: 70vh;
+  --mazeScreenWidth: 45vw;
+  --borderRadius: 20px;
+  --mazeHeight: 60vh;
+  --themeColor: #11031c;
+  --mazeCell: calc(var(--mazeHeight) / 15);
+}
