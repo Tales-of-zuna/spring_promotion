@@ -8,6 +8,7 @@
     <title>Spring promotion</title>
   </head>
   <body
+    id="root"
     style="
       max-height: 100vh;
       max-width: 100vh;
@@ -15,21 +16,54 @@
       position: relative;
     "
   >
-    <img
-      src="https://cdn.dribbble.com/userupload/10087443/file/original-ed1c1a661782538c3b29579493c2b1c4.jpg?resize=5715x3220"
+    <div
+      id="customDialog"
+      style="
+        height: 100vh;
+        display: none;
+        width: 100vw;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 40;
+        position: absolute;
+        top: 0;
+        left: 0;
+        gap: 30px;
+        justify-content: center;
+        align-items: center;
+      "
+    ></div>
+    <div
       style="
         height: 100vh;
         top: 0%;
         left: 0%;
         width: 100vw;
-        background-color: var(--themeColor);
+        background: rgb(0, 0, 0);
+        background: linear-gradient(
+          45deg,
+          rgba(0, 0, 0, 1) 0%,
+          rgba(22, 26, 48, 1) 50%,
+          rgba(49, 48, 77, 1) 100%
+        );
         position: absolute;
         object-fit: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         z-index: 0;
       "
       alt=""
-    />
-
+    ></div>
+    <div class="statusBar animate-glow">
+      <div style="display: flex; gap: 10px; align-items: center">
+        <p style="font-weight: bold">Тоглох эрх:</p>
+        <p id="stars"></p>
+      </div>
+      <div style="display: flex; gap: 10px; align-items: center">
+        <p style="font-weight: bold">Тохирлын эрх:</p>
+        <p id="coupons"></p>
+      </div>
+    </div>
     <div
       class="container"
       style="
@@ -50,11 +84,9 @@
           width: var(--mazeScreenWidth);
           border-radius: var(--borderRadius);
           backdrop-filter: blur(10px);
-          border: 5px solid paleturquoise;
-          /* background-image: url('https://goteleport.com/_next/image/?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fy1ellg96%2Fproduction%2F350deadc381c32d1ba38c07e61d915f340fe1ee4-3840x2160.png&w=3840&q=75'); */
-          /* background: var(--themeColor); */
+          background-image: url('../assets/spring/backgroundMaze.jpg');
           background-size: cover;
-          /* overflow-x: hidden; */
+          overflow-x: hidden;
         "
       >
         <div style="height: 100%; position: relative">
@@ -76,12 +108,14 @@
             "
           >
             <img
+              id="car"
               src="../assets/spring/Mashin.webp"
               style="height: 80px; aspect-ratio: 1; object-fit: contain"
               alt=""
             />
           </div>
           <div
+            id="maze"
             style="
               height: 80%;
               top: 6%;
@@ -93,8 +127,52 @@
               grid-template-columns: repeat(30, 0fr);
               grid-template-rows: repeat(15, 0fr);
             "
-            id="maze"
-          ></div>
+          >
+            <img
+              id="carRoad"
+              class="carRoad"
+              src="../assets/spring/car.webp"
+              alt=""
+            />
+
+            <img
+              id="arrow1"
+              src="../assets/spring/gogo.png"
+              class="arrow"
+              alt=""
+            />
+            <img
+              id="arrow2"
+              src="../assets/spring/gogo1.png"
+              class="arrow1"
+              alt=""
+            />
+            <img
+              id="arrow3"
+              src="../assets/spring/gogo2.png"
+              class="arrow2"
+              alt=""
+            />
+
+            <img
+              id="gift1"
+              class="gift1"
+              src="../assets/spring/gift.png"
+              alt=""
+            />
+            <img
+              id="gift2"
+              class="gift2"
+              src="../assets/spring/gift.png"
+              alt=""
+            />
+            <img
+              id="gift3"
+              class="gift3"
+              src="../assets/spring/gift.png"
+              alt=""
+            />
+          </div>
         </div>
       </div>
       <div
@@ -105,17 +183,28 @@
           border-radius: var(--borderRadius);
         "
       >
-        <div style="padding: 2rem; font-size: larger">
-          <p style="font-weight: bold">Хаврын урамшуулалт хөтөлбөр 2024</p>
-          <p>
+        <div
+          style="
+            height: 80%;
+            padding: 2rem;
+            font-size: larger;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+          "
+        >
+          <p style="font-weight: bold; text-transform: uppercase">
+            "RAV4-тэй кино" урамшуулалт хөтөлбөр 2024
+          </p>
+          <p style="margin-top: -1vh">
             <span style="font-weight: bold">Үргэлжлэх хугацаа:</span>
-            2024.04.01-2024.06-01
+            2024.04.16-2024.05.27
           </p>
           <div
             style="display: flex; justify-content: center; align-items: center"
           >
             <img
-              src="../assets/background.png"
+              src="../assets/giftbundle.png"
               style="width: 32rem; height: 20rem; border-radius: 1rem"
               alt=""
             />
@@ -128,7 +217,7 @@
             style="
               display: flex;
               align-items: center;
-              justify-content: space-between;
+              justify-content: space-around;
             "
           >
             <div style="display: flex; align-items: center">

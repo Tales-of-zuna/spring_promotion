@@ -15,13 +15,48 @@
 
 @keyframes glow {
   0% {
-    box-shadow: 0 0 10px 0px #fca5a5;
+    box-shadow: 0 0 10px 0px white;
   }
   50% {
-    box-shadow: 0 0 20px 5px #fca5a5;
+    box-shadow: 0 0 20px 5px white;
   }
   100% {
-    box-shadow: 0 0 10px 0px #fca5a5;
+    box-shadow: 0 0 10px 0px white;
+  }
+}
+@keyframes updown {
+  0% {
+    transform: translateY(0vh);
+  }
+  50% {
+    transform: translateY(1vh);
+  }
+  100% {
+    transform: translateY(0vh);
+  }
+}
+
+@keyframes downup {
+  0% {
+    transform: translateY(0vh);
+  }
+  50% {
+    transform: translateY(-1vh);
+  }
+  100% {
+    transform: translateY(0vh);
+  }
+}
+
+@keyframes leftright {
+  0% {
+    transform: translateX(0vh);
+  }
+  50% {
+    transform: translateX(-1vh);
+  }
+  100% {
+    transform: translateX(0vh);
   }
 }
 
@@ -43,6 +78,32 @@ body {
   align-items: center;
 }
 
+.gift1 {
+  height: calc(var(--mazeCell) * 1);
+  width: calc(var(--mazeCell) * 1);
+  position: absolute;
+  top: calc(var(--mazeCell) * 3);
+  left: calc(var(--mazeCell) * 27);
+}
+.gift2 {
+  height: calc(var(--mazeCell) * 1);
+  width: calc(var(--mazeCell) * 1);
+  position: absolute;
+  top: calc(var(--mazeCell) * 7);
+  left: calc(var(--mazeCell) * 27);
+}
+.gift3 {
+  height: calc(var(--mazeCell) * 1);
+  width: calc(var(--mazeCell) * 1);
+  position: absolute;
+  top: calc(var(--mazeCell) * 11);
+  left: calc(var(--mazeCell) * 27);
+}
+.star {
+  position: absolute;
+  z-index: 20;
+  height: 4vh;
+}
 .custom-container {
   height: 33.33%;
   width: 66.33%;
@@ -66,9 +127,40 @@ body {
 
 .roadCell {
   background-color: #344684;
-  /* outline: solid; */
   scale: 1;
+
   position: relative;
+}
+.roadImage {
+  opacity: 30%;
+  width: var(--mazeCell);
+  height: var(--mazeCell);
+}
+
+.sb {
+  width: calc(var(--mazeCell) * 1.5);
+  position: absolute;
+  bottom: calc(var(--mazeCell) * 6);
+}
+.carRoad {
+  position: absolute;
+  width: var(--mazeCell);
+  z-index: 10;
+  display: none;
+  bottom: calc(var(--mazeCell) * 6);
+}
+.statusBar {
+  display: flex;
+  position: absolute;
+  justify-content: space-around;
+  color: white;
+  align-items: center;
+  height: 30px;
+  width: 18vw;
+  left: 70vw;
+  border-radius: var(--borderRadius);
+  background-color: var(--themeColor);
+  top: calc(15vh - 40px);
 }
 
 .house1 {
@@ -76,42 +168,74 @@ body {
   position: absolute;
   bottom: calc(var(--mazeCell) * 7);
 }
+.arrow {
+  position: absolute;
+  z-index: 20;
+  width: calc(var(--mazeCell) * 0.5);
+  transition: ease-in-out;
+  display: none;
+  animation: updown 2s infinite;
+}
+.arrow1 {
+  position: absolute;
+  height: calc(var(--mazeCell) * 0.5);
+  animation: leftright 2s infinite;
+  transition: ease-in-out;
+
+  z-index: 20;
+  display: none;
+}
+.arrow2 {
+  position: absolute;
+  z-index: 20;
+  width: calc(var(--mazeCell) * 0.5);
+  display: none;
+  animation: downup 2s infinite;
+  transition: ease-in-out;
+}
 .house2 {
   width: calc(var(--mazeCell));
   position: absolute;
   bottom: calc(var(--mazeCell) * 7);
 }
+
 .house3 {
   width: calc(var(--mazeCell));
   position: absolute;
   bottom: calc(var(--mazeCell) * 11);
 }
+
 .house4 {
   width: calc(var(--mazeCell) * 1.2);
   position: absolute;
   z-index: 10;
   bottom: calc((var(--mazeCell) * 3) - 10px);
 }
+
 .house5 {
   width: calc(var(--mazeCell) * 1.5);
   position: absolute;
   bottom: calc(var(--mazeCell) * 3);
 }
+
 .house6 {
   width: calc(var(--mazeCell) * 1.7);
   position: absolute;
   bottom: calc(var(--mazeCell) * 3);
 }
+
 .house7 {
   width: calc(var(--mazeCell) - 10px);
   position: absolute;
   bottom: calc(var(--mazeCell) * 3);
 }
+
 .house8 {
   width: calc(var(--mazeCell) * 1.2);
   position: absolute;
   bottom: calc(var(--mazeCell) * 3);
 }
+
 .house9 {
   width: calc(var(--mazeCell) - 10px);
   position: absolute;

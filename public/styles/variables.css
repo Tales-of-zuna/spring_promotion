@@ -3,6 +3,6 @@
   --mazeScreenWidth: 45vw;
   --borderRadius: 20px;
   --mazeHeight: 60vh;
-  --themeColor: #11031c;
+  --themeColor: #050b1f;
   --mazeCell: calc(var(--mazeHeight) / 15);
 }
